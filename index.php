@@ -3,16 +3,19 @@
  * 
  */
 echo "DAO - Select via class Sql ";
-
+echo ">> SELECT * FROM tb_usuarios <br>";
 require_once("config.php");
 
-$sql = new Sql();
+//$sql = new Sql();
+//$usuarios = $sql->select("SELECT * FROM tb_usuarios");
+//echo json_encode($usuarios);
 
-$usuarios = $sql->select("SELECT * FROM tb_usuarios");
+$root = new Usuario();
 
-//echo "<pre>";
-//print_r($usuarios);
-echo ">> SELECT * FROM tb_usuarios <br>";
-echo json_encode($usuarios);
+$root->loadById(3);
+
+echo $root;
+
+
 
  ?>
