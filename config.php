@@ -24,16 +24,15 @@ date_default_timezone_set('America/Sao_Paulo');
 //echo utf8_decode($str) ."<br>";
 setlocale(LC_ALL,"pt_BR", "pt_BR.utf-8","ptb");
 echo date("l d/m/Y H:i:s")."<hr>";
-echo " Autoload > <br>";
 spl_autoload_register(function($class_name) {
 
-	 echo " ________ > ". $class_name . "<br>";
+	 echo " Autoload  > ". $class_name . "<br>";
 
 	$filename = "class". DIRECTORY_SEPARATOR . $class_name . ".php";
 
 	if (file_exists($filename)) {
 
-		echo "Require: < $filename > <br>";
+		echo "________ Require: < $filename > <br>";
 		require_once($filename);
 
 	}
