@@ -53,11 +53,18 @@ $aluno->insertLogin();
 echo " Usuários Inserido  <br>";
 echo $aluno;
 */
-echo " Inserindo Usuários - Método insertLogin - Usando CALL sp_usuarios_insert <br>";	
+/*
+echo " Alterando Usuários - Método updateUsuario - Usando Método query <br>";	
 $usuario = new Usuario();
 $usuario->loadById(5);
 $usuario->updateUsuario("professor","!@#$%");
 echo " Usuários Alterado  <br>";
 echo $usuario;
-
+*/
+echo " Deletando Usuários - Método deleteUsuario - Usando Método query <br>";	
+$usuario = new Usuario();
+$usuario->loadById(7);
+$usuario->deleteUsuario();
+echo " Usuários Deletado  <br>";
+echo $usuario;
  ?>
