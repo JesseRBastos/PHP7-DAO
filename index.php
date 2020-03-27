@@ -31,7 +31,7 @@ echo "<hr>";
 // Carrega Lista de Usuários - acessando loadByLogin via Método static (não precisa Instanciar)
 echo "<hr>";
 echo " Carrega Lista de Usuários - acessando loadByLogin via Método static <br>";	
-$lista = Usuario::loadByLogin('M');
+$lista = Usuario::loadByLogin('o');
 echo json_encode($lista);
 echo "<hr>";
 */
@@ -44,15 +44,20 @@ echo '$usuario->getLogin("jose","esoj")'."<br>";
 echo $usuario;
 echo "<hr>";
 */
+/*
 echo " Inserindo Usuários - Método insertLogin - Usando CALL sp_usuarios_insert <br>";	
-$aluno = new Usuario();
-
-$aluno->setDeslogin("Aluno");
-$aluno->setDessenha("@lun0");
-
+$aluno = new Usuario("Aluno","@lun0");
+//$aluno->setDeslogin("Aluno");
+//$aluno->setDessenha("@lun0");
 $aluno->insertLogin();
-
-var_dump($$aluno);
- 
+echo " Usuários Inserido  <br>";
+echo $aluno;
+*/
+echo " Inserindo Usuários - Método insertLogin - Usando CALL sp_usuarios_insert <br>";	
+$usuario = new Usuario();
+$usuario->loadById(5);
+$usuario->updateUsuario("professor","!@#$%");
+echo " Usuários Alterado  <br>";
+echo $usuario;
 
  ?>

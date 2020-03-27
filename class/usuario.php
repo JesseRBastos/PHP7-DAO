@@ -66,7 +66,7 @@ class Usuario
 	public function insertLogin(){
 		$sql = new Sql();
 		$results = $sql->select("CALL sp_usuarios_insert(:LOGIN,:PASSWORD", 
-				array(":LOGIN"=>$this->getDeslogin(), 
+ 				array(":LOGIN"=>$this->getDeslogin(), 
 					  ":PASSWORD"=>$this->getDessenha()
 		));
 		if (count($results) > 0) {
@@ -79,16 +79,34 @@ class Usuario
 			$this->setDessenha($data['dessenha']);
 			$this->setDtcadastro(new DateTime($data['dtcadastro']));	
 	}
+	public function updateUsuario($login, $password){
+
+		$this->setDeslogin($login);
+		$this->setDessenha($password);
+
+		$sql = new Sql();
+
+		$sql->query("UPDATE tb_usuarios SET deslogin= :LOGIN, dessenha= :PASSWORD WHERE idusuario = :ID",	array(
+				":LOGIN"=>$this->getDeslogin(), 
+				":PASSWORD"=>$this->getDessenha(),
+				":ID"=>$this->getIdusuario()
+		));
+	
+	}
+	public function __construct($login = "", $password = "") {
+		$this->setDeslogin($login);
+		$this->setDessenha($password);
+	}
+
 	public function __toString() {
 
-		return json_decode(array(
+		return json_encode(array(
 			"idusuario"=>$this->getIdusuario(),
 			"deslogin"=>$this->getDeslogin(),
 			"dessenha"=>$this->getDessenha(),
 			"dtcadastro"=>$this->getDtcadastro()->format("d/m/Y H:i:s")
 			));
-
 	}
-}
+} 
 
  ?>
