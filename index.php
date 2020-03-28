@@ -3,9 +3,9 @@
  * 
  */
 echo "DAO - Select via class Sql ";
-echo ">> SELECT * FROM tb_usuarios <br>";
+//echo ">> SELECT * FROM tb_usuarios <br>";
 require_once("config.php");
-
+echo "<br>";
 /*
 $sql = new Sql();
 $usuarios = $sql->select("SELECT * FROM tb_usuarios");
@@ -44,15 +44,15 @@ echo '$usuario->getLogin("jose","esoj")'."<br>";
 echo $usuario;
 echo "<hr>";
 */
-/*
-echo " Inserindo Usuários - Método insertLogin - Usando CALL sp_usuarios_insert <br>";	
+
+echo " Inserindo Usuários - Function insertLogin - Usando CALL sp_usuarios_insert <br>";	
 $aluno = new Usuario("Aluno","@lun0");
 //$aluno->setDeslogin("Aluno");
 //$aluno->setDessenha("@lun0");
 $aluno->insertLogin();
 echo " Usuários Inserido  <br>";
 echo $aluno;
-*/
+
 /*
 echo " Alterando Usuários - Método updateUsuario - Usando Método query <br>";	
 $usuario = new Usuario();
@@ -61,10 +61,12 @@ $usuario->updateUsuario("professor","!@#$%");
 echo " Usuários Alterado  <br>";
 echo $usuario;
 */
+/*
 echo " Deletando Usuários - Método deleteUsuario - Usando Método query <br>";	
 $usuario = new Usuario();
 $usuario->loadById(7);
 $usuario->deleteUsuario();
 echo " Usuários Deletado  <br>";
 echo $usuario;
+*/
  ?>

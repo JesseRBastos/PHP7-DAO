@@ -65,10 +65,14 @@ class Usuario
 	}
 	public function insertLogin(){
 		$sql = new Sql();
-		$results = $sql->select("CALL sp_usuarios_insert(:LOGIN,:PASSWORD", 
+
+		$results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD ", 
  				array(":LOGIN"=>$this->getDeslogin(), 
 					  ":PASSWORD"=>$this->getDessenha()
 		));
+		echo 'var_dump($retults) no insertLogin >>>>  '."<br>";
+		var_dump($results);
+		echo "<br>";
 		if (count($results) > 0) {
 			$this->setData($results[0]);
 		}	
